@@ -11,11 +11,11 @@
 }
 
 * {
-    -webkit-user-select: none;  /* Chrome, Safari, Opera */
-    -moz-user-select: none;     /* Firefox */
-    -ms-user-select: none;      /* IE/Edge */
-    user-select: none;          /* Padrão */
-    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;  
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+    user-select: none;          
+    -webkit-touch-callout: none; 
 }
 
 input, textarea {
@@ -60,7 +60,7 @@ body {
   z-index: 10;
 }
 
-/* HEADER PREMIUM */
+
 header {
   text-align: center;
   padding: 80px 0 40px;
@@ -90,7 +90,7 @@ h1 {
   letter-spacing: -1px;
 }
 
-/* ÁRVORE E TRONCO */
+
 .tree-container {
   position: relative;
   padding: 100px 0;
@@ -120,7 +120,7 @@ h1 {
   clear: both;
   position: relative;
   margin-bottom: 150px;
-  /* Aumente para 250px para dar espaço às invasões */
+  
   min-height: 180px;
   opacity: 0;
   transform: translateY(50px);
@@ -143,7 +143,7 @@ h1 {
   text-align: left;
 }
 
-/* CAIXA DE CONTEÚDO PREMIUM */
+
 .content-box {
   background: #fff;
   padding: 30px;
@@ -175,7 +175,7 @@ h1 {
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
 }
 
-/* GLASSMORPISM INVASION */
+
 .invasion-card {
   position: absolute;
   background: rgba(255, 255, 255, 0.82);
@@ -205,10 +205,10 @@ h1 {
   display: block;
 }
 
-/* --- LADO DIREITO INVADE A ESQUERDA --- */
+
 .node-right .inv-atividades {
   top: -150px;
-  /* Sobe mais */
+  
   right: 147%;
 }
 
@@ -216,16 +216,16 @@ h1 {
   top: 50%;
   transform: translateY(-50%) scale(0.9);
   right: 160%;
-  /* O do meio pula um pouco mais longe (Efeito Leque) */
+  
 }
 
 .node-right .inv-conhecimento {
   bottom: -150px;
-  /* Desce mais */
+  
   right: 147%;
 }
 
-/* --- LADO ESQUERDO INVADE A DIREITA (Ucrânia inclusa) --- */
+
 .node-left .inv-atividades {
   top: -150px;
   left: 147%;
@@ -235,7 +235,7 @@ h1 {
   top: 50%;
   transform: translateY(-50%) scale(0.9);
   left: 160%;
-  /* Pula mais longe para não bater nos de cima/baixo */
+  
 }
 
 .node-left .inv-conhecimento {
@@ -243,44 +243,42 @@ h1 {
   left: 147%;
 }
 
-/* Ajustes exclusivos para o balão da Rodonaves */
+
 .rodonaves-node .invasion-card {
   width: 320px;
-  /* Aumentamos a largura para acomodar o texto mais longo */
+  
   padding: 22px;
-  /* Um pouco mais de respiro interno */
+  
 }
 
-/* Aumentando o leque vertical para o texto não encavalar */
+
 .rodonaves-node .node-right .inv-atividades {
   top: -160px;
-  /* Jogamos mais para cima */
+  
 }
 
 .rodonaves-node .node-right .inv-conhecimento {
   bottom: -160px;
-  /* Jogamos mais para baixo */
+  
 }
 
-/* Se o card do meio (saída) ainda estiver batendo nos outros, 
-   podemos jogá-lo ainda mais para a esquerda */
 .rodonaves-node .node-right .inv-saida {
   right: 155%;
 }
 
-/* Revelação suave ao passar o mouse */
+
 .content-box:hover .invasion-card {
   opacity: 1;
   pointer-events: auto;
-  /* Remova o transform: translateY(0) daqui! */
+  
 }
 
-/* Mantém o card do meio centralizado no hover */
+
 .content-box:hover .inv-saida {
   transform: translateY(-50%) scale(1);
 }
 
-/* Garante que os de cima e baixo apenas ganhem escala */
+
 .content-box:hover .inv-atividades,
 .content-box:hover .inv-conhecimento {
   transform: scale(1);
@@ -294,7 +292,7 @@ h1 {
   transform: translateY(-50%) scale(1);
 }
 
-/* ESTILO UCRÂNIA (DARK PREMIUM) */
+
 .tactical-node .content-box {
   background: #0f172a;
   color: #f1f5f9;
@@ -324,27 +322,27 @@ h1 {
 
 .tactical-node .content-box {
   background: #0f172a;
-  /* Azul marinho quase preto, mais moderno */
+  
   color: #f1f5f9;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* 1. Card de Invasão da Ucrânia (Escuro e Legível) */
+
 .tactical-node .invasion-card {
   background: rgba(15, 23, 42, 0.95);
-  /* Fundo escuro profundo com transparência */
+  
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 5px solid #ffd700;
-  /* Linha amarela de destaque */
+  
   color: #f8fafc;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* 2. Ícones e Títulos dentro do Card Tático */
+
 .tactical-node .invasion-card strong {
   color: #ffd700;
-  /* Amarelo apenas para os títulos (destaque máximo) */
+  
   font-size: 1rem;
   display: block;
   margin-bottom: 6px;
@@ -353,7 +351,7 @@ h1 {
 
 .tactical-node .invasion-card i {
   color: #0057b7;
-  /* Ícones em Azul */
+  
   width: 555px;
   height: 16px;
   display: flex;
@@ -363,11 +361,11 @@ h1 {
   margin-bottom: 12px;
 }
 
-/* 4. Texto de Descrição */
+
 .tactical-node .invasion-card span,
 .tactical-node .invasion-card p {
   color: rgba(241, 245, 249, 0.85);
-  /* Branco suave para não cansar a leitura */
+  
   font-weight: 300;
   line-height: 1.6;
 }
@@ -440,8 +438,9 @@ h1 {
 
 .arsenal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
+  justify-content: center;
 }
 
 .arsenal-card {
@@ -491,7 +490,12 @@ h1 {
   line-height: 1.5;
 }
 
-/* Ajuste para Mobile */
+.arsenal-card i.fa-language {
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
+
 @media (max-width: 768px) {
   .arsenal-grid {
     grid-template-columns: 1fr;
@@ -528,7 +532,7 @@ h1 {
   font-weight: 600;
 }
 
-/* Ajuste para ecrãs menores */
+
 @media (max-width: 768px) {
   .bio-title {
     font-size: 1.5rem;
@@ -539,41 +543,41 @@ h1 {
   }
 }
 
-/* No seu style.css, procure e ajuste: */
+
 .watermarks-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   bottom: 0;
-  /* Isso força o container a ir até o final do body */
+  
   pointer-events: none;
   z-index: 0;
-  /* Fica atrás da árvore e dos cards */
+  
   overflow: hidden;
 }
 
 .watermarks-container i {
   position: absolute;
   color: rgba(226, 232, 240, 0.4);
-  /* Cinza claríssimo, quase transparente */
+  
   font-size: 15rem;
-  /* Ícones gigantes */
+  
   filter: blur(1px);
-  /* Leve desfoque para profundidade */
+  
   user-select: none;
 }
 
-/* Posicionamento Estratégico */
 
-/* Logística no Topo */
+
+
 .wm-1 {
   top: 5%;
   left: -5%;
   transform: rotate(-15deg);
 }
 
-/* Tecnologia perto do Arsenal */
+
 .wm-2 {
   top: 15%;
   right: -5%;
@@ -581,7 +585,7 @@ h1 {
   font-size: 18rem !important;
 }
 
-/* Resiliência perto da Ucrânia */
+
 .wm-3 {
   top: 35%;
   left: 10%;
@@ -589,39 +593,39 @@ h1 {
   opacity: 0.3;
 }
 
-/* Programação/Dev mais abaixo */
+
 .wm-4 {
   top: 55%;
   right: 5%;
   transform: rotate(20deg);
 }
 
-/* Armazém/Logística */
+
 .wm-5 {
   top: 75%;
   left: -2%;
   transform: rotate(-10deg);
 }
 
-/* Visão Global/Internacional na base */
+
 .wm-6 {
   top: 90%;
   right: 10%;
   transform: rotate(15deg);
 }
 
-/* Ícone de Medicina/Cuidados (Perto da Ucrânia) */
+
 .wm-7 {
   top: 50%;
-  /* Ajuste essa % para bater com o card da Ucrânia no seu scroll */
+  
   right: 80%;
   transform: rotate(-10deg);
   font-size: 20rem !important;
   opacity: 0.5;
-  /* Deixe bem sutil para não brigar com o card escuro */
+  
 }
 
-/* Ícone de Estratégia (Perto da base da árvore) */
+
 .wm-8 {
   top: 52%;
   left: 41%;
@@ -630,14 +634,14 @@ h1 {
   opacity: 0.5;
 }
 
-/* Ajuste para não aparecer no Mobile e poluir a tela pequena */
+
 @media (max-width: 768px) {
   .watermarks-container {
     display: none;
   }
 }
 
-/* Garante que o body seja a referência de altura */
+
 body {
   position: relative;
   min-height: 100vh;
@@ -648,9 +652,9 @@ body {
   margin: 60px auto;
   padding: 0 20px;
   margin-top: 20px;
-  /* Reduz um pouco o topo já que a Bio já tem margem */
+  
   margin-bottom: 40px;
-  /* Dá um respiro maior antes de entrar nos cards do Arsenal */
+  
 }
 
 .academic-content {
@@ -692,13 +696,13 @@ body {
 .academic-icon {
   font-size: 3.5rem;
   color: rgba(0, 51, 102, 0.05);
-  /* Ícone gigante e sutil ao fundo do card */
+  
   position: absolute;
   right: 40px;
   bottom: 20px;
 }
 
-/* Responsividade */
+
 @media (max-width: 768px) {
   .academic-content {
     flex-direction: column;
@@ -711,32 +715,32 @@ body {
   }
 }
 
-/* --- O CONSERTO DOS GALHOS --- */
+
 
 .branch-line {
   position: absolute;
   top: 55px;
-  /* Ajustei para alinhar melhor com o título */
+  
   height: 2px;
   background: var(--trunk-color);
   z-index: 5;
-  /* Aumentamos para ficar ACIMA do fundo do card, mas abaixo do texto */
+  
   width: 95px;
   pointer-events: none;
-  /* Garante que a linha não atrapalhe o clique/hover */
+  
 }
 
-/* Ajuste de posição para os dois lados */
+
 .node-left .branch-line {
   right: -95px;
-  /* Reduzi para 30px para garantir que ela "fure" o card e toque o tronco */
+  
 }
 
 .node-right .branch-line {
   left: -95px;
 }
 
-/* Alinhamento da bolinha na ponta do galho */
+
 .node-left .branch-line::after {
   right: -6px;
 }
@@ -745,7 +749,7 @@ body {
   left: -6px;
 }
 
-/* Força a visibilidade das linhas em todos os wrappers */
+
 .node-wrapper,
 .node,
 .content-box {
@@ -776,7 +780,7 @@ body {
   display: flex;
   justify-content: center;
   margin-top: -150px;
-  /* Faz ele "encaixar" no final do tronco */
+  
   padding-bottom: 100px;
   position: relative;
   z-index: 20;
@@ -810,7 +814,7 @@ body {
   background: #004080;
 }
 
-/* --- FOOTER AUTORAL --- */
+
 .site-footer {
     text-align: center;
     padding: 20px 0 40px;
@@ -839,7 +843,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* Garante que o botão de WA não cubra o texto em telas pequenas */
+
 @media (max-width: 768px) {
     .site-footer {
         padding-bottom: 100px; 
