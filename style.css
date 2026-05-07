@@ -1,0 +1,847 @@
+:root {
+  --primary: #003366;
+  --accent: #00c2cb;
+  --bg: #f8fafc;
+  --text: #1e293b;
+  --trunk-color: #cbd5e1;
+  --ukraine-blue: #0057b7;
+  --ukraine-yellow: #ffd700;
+  --glass: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+* {
+    -webkit-user-select: none;  /* Chrome, Safari, Opera */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* IE/Edge */
+    user-select: none;          /* Padrão */
+    -webkit-touch-callout: none; /* iOS Safari */
+}
+
+input, textarea {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  user-select: none; 
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  background-image: radial-gradient(
+    circle at 2px 2px,
+    #e2e8f0 1px,
+    transparent 0
+  );
+  background-size: 40px 40px;
+
+}
+
+#bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0);
+  z-index: 5;
+  pointer-events: none;
+  transition: background 0.6s ease;
+  backdrop-filter: blur(0px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* HEADER PREMIUM */
+header {
+  text-align: center;
+  padding: 80px 0 40px;
+}
+
+.photo-circle {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  margin: 0 auto 30px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 2.8rem;
+  letter-spacing: -1px;
+}
+
+/* ÁRVORE E TRONCO */
+.tree-container {
+  position: relative;
+  padding: 100px 0;
+}
+
+.trunk {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(
+    to bottom,
+    var(--trunk-color),
+    var(--primary),
+    var(--trunk-color)
+  );
+  transform: translateX(-50%);
+  z-index: 1;
+  border-radius: 10px;
+  opacity: 0.4;
+}
+
+.node-wrapper {
+  width: 100%;
+  display: block;
+  clear: both;
+  position: relative;
+  margin-bottom: 150px;
+  /* Aumente para 250px para dar espaço às invasões */
+  min-height: 180px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.3s ease-out;
+}
+
+.node {
+  width: 42%;
+  position: relative;
+  z-index: 20;
+}
+
+.node-left {
+  float: left;
+  text-align: right;
+}
+
+.node-right {
+  float: right;
+  text-align: left;
+}
+
+/* CAIXA DE CONTEÚDO PREMIUM */
+.content-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: visible !important;
+  z-index: 21;
+}
+
+.content-box::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 7.5px;
+  width: 97%;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -2px 12px rgba(8, 14, 87, 0.5);
+}
+
+.content-box:hover {
+  transform: translateY(-10px) scale(1.02);
+  z-index: 1001;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
+}
+
+/* GLASSMORPISM INVASION */
+.invasion-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 22px;
+  border-radius: 20px;
+  width: 290px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.7s cubic-bezier(0.2, 1, 0.3, 1);
+  z-index: 9999;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.invasion-card strong {
+  color: var(--primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.invasion-card i {
+  color: var(--accent);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* --- LADO DIREITO INVADE A ESQUERDA --- */
+.node-right .inv-atividades {
+  top: -150px;
+  /* Sobe mais */
+  right: 147%;
+}
+
+.node-right .inv-saida {
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+  right: 160%;
+  /* O do meio pula um pouco mais longe (Efeito Leque) */
+}
+
+.node-right .inv-conhecimento {
+  bottom: -150px;
+  /* Desce mais */
+  right: 147%;
+}
+
+/* --- LADO ESQUERDO INVADE A DIREITA (Ucrânia inclusa) --- */
+.node-left .inv-atividades {
+  top: -150px;
+  left: 147%;
+}
+
+.node-left .inv-saida {
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+  left: 160%;
+  /* Pula mais longe para não bater nos de cima/baixo */
+}
+
+.node-left .inv-conhecimento {
+  bottom: -150px;
+  left: 147%;
+}
+
+/* Ajustes exclusivos para o balão da Rodonaves */
+.rodonaves-node .invasion-card {
+  width: 320px;
+  /* Aumentamos a largura para acomodar o texto mais longo */
+  padding: 22px;
+  /* Um pouco mais de respiro interno */
+}
+
+/* Aumentando o leque vertical para o texto não encavalar */
+.rodonaves-node .node-right .inv-atividades {
+  top: -160px;
+  /* Jogamos mais para cima */
+}
+
+.rodonaves-node .node-right .inv-conhecimento {
+  bottom: -160px;
+  /* Jogamos mais para baixo */
+}
+
+/* Se o card do meio (saída) ainda estiver batendo nos outros, 
+   podemos jogá-lo ainda mais para a esquerda */
+.rodonaves-node .node-right .inv-saida {
+  right: 155%;
+}
+
+/* Revelação suave ao passar o mouse */
+.content-box:hover .invasion-card {
+  opacity: 1;
+  pointer-events: auto;
+  /* Remova o transform: translateY(0) daqui! */
+}
+
+/* Mantém o card do meio centralizado no hover */
+.content-box:hover .inv-saida {
+  transform: translateY(-50%) scale(1);
+}
+
+/* Garante que os de cima e baixo apenas ganhem escala */
+.content-box:hover .inv-atividades,
+.content-box:hover .inv-conhecimento {
+  transform: scale(1);
+}
+
+.node-right .content-box:hover .inv-saida {
+  transform: translateY(-50%) scale(1);
+}
+
+.node-left .content-box:hover .inv-saida {
+  transform: translateY(-50%) scale(1);
+}
+
+/* ESTILO UCRÂNIA (DARK PREMIUM) */
+.tactical-node .content-box {
+  background: #0f172a;
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: visible !important;
+}
+
+.tactical-node .content-box::before {
+  top: -1px;
+  left: 7.5px;
+  width: 97%;
+  background: var(--ukraine-blue);
+}
+
+.tactical-node .content-box::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 7.5px;
+  width: 97%;
+  height: 5px;
+  background: var(--ukraine-yellow);
+  border-radius: 0 0 30px 30px;
+  z-index: 1;
+}
+
+.tactical-node .content-box {
+  background: #0f172a;
+  /* Azul marinho quase preto, mais moderno */
+  color: #f1f5f9;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* 1. Card de Invasão da Ucrânia (Escuro e Legível) */
+.tactical-node .invasion-card {
+  background: rgba(15, 23, 42, 0.95);
+  /* Fundo escuro profundo com transparência */
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 5px solid #ffd700;
+  /* Linha amarela de destaque */
+  color: #f8fafc;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* 2. Ícones e Títulos dentro do Card Tático */
+.tactical-node .invasion-card strong {
+  color: #ffd700;
+  /* Amarelo apenas para os títulos (destaque máximo) */
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.tactical-node .invasion-card i {
+  color: #0057b7;
+  /* Ícones em Azul */
+  width: 555px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* 4. Texto de Descrição */
+.tactical-node .invasion-card span,
+.tactical-node .invasion-card p {
+  color: rgba(241, 245, 249, 0.85);
+  /* Branco suave para não cansar a leitura */
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.date-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.wa-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #25d366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+  transition: 0.3s;
+  z-index: 2000;
+  text-decoration: none;
+}
+
+.wa-button:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 900px) {
+  .trunk {
+    left: 20px;
+  }
+
+  .node {
+    width: 85% !important;
+    float: right !important;
+  }
+
+  .invasion-card {
+    position: relative !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    transform: none !important;
+    opacity: 1 !important;
+    display: none;
+    margin-top: 15px;
+  }
+
+  .content-box:hover .invasion-card {
+    display: block;
+  }
+}
+
+.arsenal-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.arsenal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.arsenal-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.arsenal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 51, 102, 0.08);
+  border-color: var(--accent);
+}
+
+.arsenal-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 194, 203, 0.1);
+  color: var(--accent);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.arsenal-info h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.arsenal-info p {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Ajuste para Mobile */
+@media (max-width: 768px) {
+  .arsenal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bio-container {
+  max-width: 850px;
+  margin: 0 auto 60px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.bio-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+}
+
+.bio-text {
+  font-family: "Inter", sans-serif;
+  font-size: 1.15rem;
+  color: #475569;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.bio-text strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Ajuste para ecrãs menores */
+@media (max-width: 768px) {
+  .bio-title {
+    font-size: 1.5rem;
+  }
+
+  .bio-text {
+    font-size: 1.05rem;
+  }
+}
+
+/* No seu style.css, procure e ajuste: */
+.watermarks-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  /* Isso força o container a ir até o final do body */
+  pointer-events: none;
+  z-index: 0;
+  /* Fica atrás da árvore e dos cards */
+  overflow: hidden;
+}
+
+.watermarks-container i {
+  position: absolute;
+  color: rgba(226, 232, 240, 0.4);
+  /* Cinza claríssimo, quase transparente */
+  font-size: 15rem;
+  /* Ícones gigantes */
+  filter: blur(1px);
+  /* Leve desfoque para profundidade */
+  user-select: none;
+}
+
+/* Posicionamento Estratégico */
+
+/* Logística no Topo */
+.wm-1 {
+  top: 5%;
+  left: -5%;
+  transform: rotate(-15deg);
+}
+
+/* Tecnologia perto do Arsenal */
+.wm-2 {
+  top: 15%;
+  right: -5%;
+  transform: rotate(10deg);
+  font-size: 18rem !important;
+}
+
+/* Resiliência perto da Ucrânia */
+.wm-3 {
+  top: 35%;
+  left: 10%;
+  transform: rotate(-5deg);
+  opacity: 0.3;
+}
+
+/* Programação/Dev mais abaixo */
+.wm-4 {
+  top: 55%;
+  right: 5%;
+  transform: rotate(20deg);
+}
+
+/* Armazém/Logística */
+.wm-5 {
+  top: 75%;
+  left: -2%;
+  transform: rotate(-10deg);
+}
+
+/* Visão Global/Internacional na base */
+.wm-6 {
+  top: 90%;
+  right: 10%;
+  transform: rotate(15deg);
+}
+
+/* Ícone de Medicina/Cuidados (Perto da Ucrânia) */
+.wm-7 {
+  top: 50%;
+  /* Ajuste essa % para bater com o card da Ucrânia no seu scroll */
+  right: 80%;
+  transform: rotate(-10deg);
+  font-size: 20rem !important;
+  opacity: 0.5;
+  /* Deixe bem sutil para não brigar com o card escuro */
+}
+
+/* Ícone de Estratégia (Perto da base da árvore) */
+.wm-8 {
+  top: 52%;
+  left: 41%;
+  transform: rotate(20deg);
+  font-size: 10rem !important;
+  opacity: 0.5;
+}
+
+/* Ajuste para não aparecer no Mobile e poluir a tela pequena */
+@media (max-width: 768px) {
+  .watermarks-container {
+    display: none;
+  }
+}
+
+/* Garante que o body seja a referência de altura */
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.academic-focus {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+  margin-top: 20px;
+  /* Reduz um pouco o topo já que a Bio já tem margem */
+  margin-bottom: 40px;
+  /* Dá um respiro maior antes de entrar nos cards do Arsenal */
+}
+
+.academic-content {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  border-radius: 30px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border: 1px solid rgba(0, 51, 102, 0.08);
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
+}
+
+.academic-badge {
+  background: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.academic-info h3 {
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.academic-info p {
+  color: #475569;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.academic-icon {
+  font-size: 3.5rem;
+  color: rgba(0, 51, 102, 0.05);
+  /* Ícone gigante e sutil ao fundo do card */
+  position: absolute;
+  right: 40px;
+  bottom: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .academic-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .academic-icon {
+    display: none;
+  }
+}
+
+/* --- O CONSERTO DOS GALHOS --- */
+
+.branch-line {
+  position: absolute;
+  top: 55px;
+  /* Ajustei para alinhar melhor com o título */
+  height: 2px;
+  background: var(--trunk-color);
+  z-index: 5;
+  /* Aumentamos para ficar ACIMA do fundo do card, mas abaixo do texto */
+  width: 95px;
+  pointer-events: none;
+  /* Garante que a linha não atrapalhe o clique/hover */
+}
+
+/* Ajuste de posição para os dois lados */
+.node-left .branch-line {
+  right: -95px;
+  /* Reduzi para 30px para garantir que ela "fure" o card e toque o tronco */
+}
+
+.node-right .branch-line {
+  left: -95px;
+}
+
+/* Alinhamento da bolinha na ponta do galho */
+.node-left .branch-line::after {
+  right: -6px;
+}
+
+.node-right .branch-line::after {
+  left: -6px;
+}
+
+/* Força a visibilidade das linhas em todos os wrappers */
+.node-wrapper,
+.node,
+.content-box {
+  overflow: visible !important;
+}
+
+.btn-cv-top {
+  margin-top: -150px;
+  padding: 12px 25px;
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--primary);
+  text-decoration: none;
+  border-radius: 50px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-cv-top:hover {
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 0 20px rgba(0, 194, 203, 0.5);
+}
+
+.final-checkpoint {
+  display: flex;
+  justify-content: center;
+  margin-top: -150px;
+  /* Faz ele "encaixar" no final do tronco */
+  padding-bottom: 100px;
+  position: relative;
+  z-index: 20;
+}
+
+.checkpoint-card {
+  background: white;
+  margin-top: 120px;
+  padding: 40px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 51, 102, 0.1);
+  max-width: 400px;
+}
+
+.btn-cv-main {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 35px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+
+.btn-cv-main:hover {
+  transform: scale(1.05);
+  background: #004080;
+}
+
+/* --- FOOTER AUTORAL --- */
+.site-footer {
+    text-align: center;
+    padding: 20px 0 40px;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 10;
+}
+
+.footer-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #64748b;
+    margin: 5px 0;
+}
+
+.footer-content i {
+    color: var(--accent);
+    margin: 0 4px;
+}
+
+.copyright-notice {
+    font-size: 0.8rem !important;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Garante que o botão de WA não cubra o texto em telas pequenas */
+@media (max-width: 768px) {
+    .site-footer {
+        padding-bottom: 100px; 
+    }
+}

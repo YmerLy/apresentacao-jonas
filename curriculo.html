@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - Jonas Afonso da Rosa</title>
+    <style>
+        :root {
+            --primary: #1a365d; 
+            --secondary: #4a5568;
+            --accent: #2b6cb0;
+            --bg: #f7fafc;
+            --text: #2d3748;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .resume-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 50px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 8px solid var(--primary);
+        }
+
+        header {
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 2.2em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            font-size: 0.95em;
+            color: var(--secondary);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 20px;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.3em;
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
+            margin-top: 30px;
+            text-transform: uppercase;
+        }
+
+        .summary {
+            font-style: italic;
+            color: var(--secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .skill-item {
+            background: #edf2f7;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .company-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: var(--primary);
+        }
+
+        .job-period {
+            font-size: 0.85em;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .role {
+            font-weight: 600;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .certification-item {
+            margin-bottom: 12px;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .resume-container { box-shadow: none; border: none; width: 100%; max-width: 100%; padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="resume-container">
+    <header>
+        <h1>Jonas Afonso da Rosa</h1>
+        <div class="job-title">Encarregado Operacional | Supervisor de Logística</div>
+        <div class="contact-info">
+            <span>📍 São José, SC</span>
+            <span>📞 (48) 99159-0415</span>
+            <span>📧 jonasafonso15@gmail.com</span>
+            <span>📞 (48) 9809-2926</span>
+            <span>🔗 linkedin.com/in/jonasafonso</span>
+        </div>
+    </header>
+
+    <section>
+        <h2>Resumo Profissional</h2>
+        <p class="summary">
+            Profissional com sólida trajetória no setor logístico, especializado na supervisão de fluxos operacionais e gestão de equipes de alta performance. Expertise em identificação de melhorias nos processos de carga e descarga, treinamento de colaboradores e elaboração de relatórios estratégicos de desempenho. Destaco-me pela agilidade na resolução de problemas complexos e comunicação assertiva voltada para resultados inovadores.
+        </p>
+    </section>
+
+    <section>
+        <h2>Principais Competências</h2>
+        <div class="skills-grid">
+            <div class="skill-item"><strong>Gestão de Equipes:</strong> Liderança direta e desenvolvimento de pessoal.</div>
+            <div class="skill-item"><strong>Análise de Dados:</strong> Relatórios de produtividade e KPIs operacionais.</div>
+            <div class="skill-item"><strong>Operações Logísticas:</strong> Supervisão de fluxo de veículos e carga/descarga.</div>
+            <div class="skill-item"><strong>Melhoria Contínua:</strong> Identificação de gargalos e eficiência na distribuição.</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Experiência Profissional</h2>
+
+        <div class="experience-item">
+            <div class="exp-header">
+                <span class="company-name">Rodonaves</span>
+                <span class="job-period">Outubro de 2025 – Março de 2026</span>
+            </div>
+            <span class="role">Supervisor Operacional</span>
+            <ul>
+                <li>Supervisão direta das atividades operacionais estratégicas na unidade de Biguaçu/SC.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="exp-header">
+                <span class="company-name">Fitlogística</span>
+                <span class="job-period">Agosto de 2021 – Novembro de 2023</span>
+            </div>
+            <span class="role">Encarregado Operacional (Promovido de Conferente)</span>
+            <ul>
+                <li>Gerenciamento integral do fluxo de trabalho e criação de cronogramas para a equipe.</li>
+                <li>Treinamento de novos funcionários e avaliação de desempenho individual (KPIs).</li>
+                <li>Supervisão direta do processo de carregamento e descarga de veículos de transferências.</li>
+                <li>Identificação e correção de gargalos operacionais visando o aumento da produtividade.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="exp-header">
+                <span class="company-name">Transportadora Plimor</span>
+                <span class="job-period">Setembro de 2020 – Junho de 2021</span>
+            </div>
+            <span class="role">Assistente de Expedição / Distribuição</span>
+            <ul>
+                <li>Suporte administrativo e operacional crítico aos processos de expedição e logística.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="exp-header">
+                <span class="company-name">Tática Transportes</span>
+                <span class="job-period">Dezembro de 2014 – Janeiro de 2016</span>
+            </div>
+            <span class="role">Ajudante de Motorista</span>
+            <ul>
+                <li>Execução de carga/descarga e separação de materiais, garantindo a integridade da entrega.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Formação e Certificações</h2>
+        <div class="certification-item">
+            <strong>Socorrista Tático / TCCC CLS</strong> – United Help Ukraine / Associação Brasileira de APH Tático
+            <br><small>Habilidade em resposta rápida e gerenciamento de segurança operacional.</small>
+        </div>
+        <div class="certification-item">
+            <strong>Aprendizagem em Crédito e Cobrança</strong> – Mercedes-Benz do Brasil
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
