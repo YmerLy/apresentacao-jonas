@@ -81,7 +81,6 @@ gsap.to(".wm-2, .wm-4, .wm-6", {
         }
       };
 
-      // Detecta se o console (DevTools) está aberto
       setInterval(function () {
         var before = new Date().getTime();
         debugger;
