@@ -22,8 +22,6 @@
             display: flex;
             min-height: 100vh;
         }
-
-        /* Sidebar Styles */
         .sidebar {
             width: 280px;
             background-color: var(--sidebar-bg);
@@ -84,7 +82,6 @@
             width: 20px;
         }
 
-        /* Main Content Styles */
         .main-content {
             flex: 1;
             padding: 2rem;
@@ -131,7 +128,6 @@
             color: var(--accent-cyan);
         }
 
-        /* KPI Cards */
         .kpi-card {
             grid-column: span 4;
             display: flex;
@@ -153,7 +149,6 @@
             letter-spacing: 1px;
         }
 
-        /* Large Sections */
         .experience-section {
             grid-column: span 7;
         }
@@ -197,7 +192,6 @@
             color: var(--text-muted);
         }
 
-        /* Highlighted Certificate */
         .certificate-box {
             background: rgba(88, 166, 255, 0.1);
             border: 1px solid var(--accent-blue);
@@ -226,7 +220,6 @@
             flex-shrink: 0;
         }
 
-        /* Skills Bars */
         .skills-section {
             grid-column: span 12;
         }
@@ -282,7 +275,7 @@
             }
         }
 
-        /* EFEITO HOVER DO CERTIFICADO */
+        
         .cert-hover-container {
             position: relative;
             display: inline-block;
@@ -310,13 +303,13 @@
 
         .cert-image-preview {
             display: none;
-            /* Escondido por padrão */
+            
             position: absolute;
             bottom: 130%;
-            /* Faz a imagem aparecer acima do botão */
+            
             left: 0;
             width: 450px;
-            /* Tamanho da imagem do certificado */
+            
             background-color: var(--card-bg);
             border: 2px solid var(--accent-blue);
             border-radius: 8px;
@@ -333,12 +326,12 @@
             display: block;
         }
 
-        /* A mágica acontece aqui: quando o mouse passa no container, a imagem aparece */
+        
         .cert-hover-container:hover .cert-image-preview {
             display: block;
         }
 
-        /* Animação suave de entrada */
+        
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -351,16 +344,16 @@
             }
         }
 
-        /* Responsividade para telas menores (celular) */
+        
         @media (max-width: 768px) {
             .cert-image-preview {
                 width: 280px;
-                /* Imagem menor no celular */
+                
                 bottom: 120%;
             }
         }
 
-        /* Estilo adicional para o novo botão e resumo */
+        
         .resume-text {
             color: var(--text-muted);
             font-size: 0.85rem;
