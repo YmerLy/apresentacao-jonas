@@ -1,3 +1,4 @@
+   
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,127 +14,50 @@
             --text: #2d3748;
         }
 
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact; /* Força a impressão de cores no Chrome/Safari */
+            print-color-adjust: exact;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.5;
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         .resume-container {
             max-width: 850px;
             margin: 0 auto;
             background: #fff;
-            padding: 50px;
+            padding: 40px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             border-top: 8px solid var(--primary);
         }
 
         header {
             border-bottom: 2px solid #edf2f7;
-            padding-bottom: 20px;
-            margin-bottom: 25px;
-            text-align: left;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         h1 {
             margin: 0;
             color: var(--primary);
-            font-size: 2.2em;
+            font-size: 2em;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .job-title {
-            font-size: 1.2em;
-            color: var(--accent);
-            font-weight: 600;
-            margin-top: 5px;
-            margin-bottom: 15px;
-        }
-
-        .contact-info {
-            font-size: 0.95em;
-            color: var(--secondary);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5px 20px;
-        }
-
-        .contact-info span {
-            display: flex;
-            align-items: center;
-        }
-
-        h2 {
-            color: var(--primary);
-            font-size: 1.3em;
-            border-left: 4px solid var(--accent);
-            padding-left: 10px;
-            margin-top: 30px;
-            text-transform: uppercase;
-        }
-
-        .summary {
-            font-style: italic;
-            color: var(--secondary);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .skill-item {
-            background: #edf2f7;
-            padding: 10px;
-            border-radius: 4px;
-            font-size: 0.9em;
-        }
-
-        .experience-item {
-            margin-bottom: 25px;
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-        }
-
-        .company-name {
-            font-weight: bold;
             font-size: 1.1em;
-            color: var(--primary);
-        }
-
-        .job-period {
-            font-size: 0.85em;
-            color: var(--secondary);
-            font-weight: 600;
-        }
-
-        .role {
-            font-weight: 600;
             color: var(--accent);
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        ul {
-            padding-left: 20px;
+            font-weight: 600;
             margin-top: 5px;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
-
-        .certification-item {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .badge-relocation {
@@ -147,9 +71,110 @@
             margin-top: 5px;
         }
 
+        .contact-info {
+            font-size: 0.9em;
+            color: var(--secondary);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px 15px;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.2em;
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .summary {
+            font-style: italic;
+            color: var(--secondary);
+            font-size: 0.95em;
+            text-align: justify;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .skill-item {
+            background: #edf2f7;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+            page-break-inside: avoid; /* Evita que uma experiência seja cortada entre duas páginas */
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .company-name {
+            font-weight: bold;
+            font-size: 1.05em;
+            color: var(--primary);
+        }
+
+        .job-period {
+            font-size: 0.85em;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .role {
+            font-weight: 600;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+
+        ul {
+            padding-left: 18px;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+
+        .certification-item {
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        /* CONFIGURAÇÕES ESPECÍFICAS DE IMPRESSÃO */
         @media print {
-            body { background: none; padding: 0; }
-            .resume-container { box-shadow: none; border: none; width: 100%; max-width: 100%; padding: 30px; }
+            body { 
+                background: white; 
+                padding: 0; 
+            }
+            .resume-container { 
+                box-shadow: none; 
+                border: none; 
+                width: 100%; 
+                max-width: 100%; 
+                padding: 0; 
+            }
+            @page {
+                margin: 1.5cm;
+                size: A4;
+            }
+            .skill-item {
+                border: 1px solid #edf2f7; /* Garante visibilidade sem o fundo se o navegador falhar */
+            }
         }
     </style>
 </head>
@@ -160,7 +185,7 @@
         <h1>Jonas Afonso da Rosa</h1>
         <div class="job-title">Encarregado Operacional | Supervisor de Logística</div>
         <div class="contact-info">
-            <span>📍 Biguaçu, SC</span>
+            <span>📍 Biguaçu, SC (Disponível para Relocação)</span>
             <span>📞 (48) 99159-0415</span>
             <span>📧 jonasafonso15@gmail.com</span>
             <span>🔗 linkedin.com/in/jonasafonso</span>
@@ -171,17 +196,17 @@
     <section>
         <h2>Resumo Profissional</h2>
         <p class="summary">
-            Estrategista operacional com vivência robusta no chão de fábrica e em sistemas de tecnologia. Especialista em otimizar rotinas, gerenciar equipes de alta performance e escalar operações logísticas. Expertise no ciclo completo da cadeia de suprimentos, garantindo o SLA através da padronização de processos operacionais (WMS, cubagem e expedição), com foco em redução de custos operacionais e segurança.
+            Estrategista operacional com sólida trajetória na supervisão de fluxos logísticos e gestão de equipes de alta performance. Especialista em otimização de rotinas de carga/descarga, cubagem e expedição via WMS. Experiência comprovada em reduzir gargalos operacionais e garantir níveis de SLA elevados sob pressão extrema. Total disponibilidade para viagens e mudanças.
         </p>
     </section>
 
     <section>
-        <h2>Principais Competências (Hard & Soft Skills)</h2>
+        <h2>Principais Competências</h2>
         <div class="skills-grid">
-            <div class="skill-item"><strong>Sistemas & Processos:</strong> WMS, ERP, Excel Avançado, KPIs Operacionais.</div>
-            <div class="skill-item"><strong>Rotinas de Armazém:</strong> Cubagem, Paletização, Carga/Descarga, Empilhadeira.</div>
-            <div class="skill-item"><strong>Liderança:</strong> Gestão de equipes (12+ colaboradores), Treinamento, Resolução de Conflitos.</div>
-            <div class="skill-item"><strong>Idiomas:</strong> Inglês (Avançado), Espanhol (Intermediário), Ucraniano (Básico).</div>
+            <div class="skill-item"><strong>Liderança:</strong> Gestão direta de 12+ colaboradores e treinamentos técnicos.</div>
+            <div class="skill-item"><strong>Dados:</strong> Monitoramento de KPIs, análise de produtividade e relatórios.</div>
+            <div class="skill-item"><strong>Operações:</strong> Controle de fluxo de carretas, cubagem e paletização.</div>
+            <div class="skill-item"><strong>Tecnologia:</strong> Domínio de WMS, ERPs logísticos e Excel Avançado.</div>
         </div>
     </section>
 
@@ -195,9 +220,9 @@
             </div>
             <span class="role">Supervisor Operacional</span>
             <ul>
-                <li>Supervisão das atividades logísticas estratégicas da unidade.</li>
-                <li>Gestão e controle do fluxo diário de <strong>+6 caminhões de coleta</strong> e expedição de <strong>3 a 5 carretas</strong> para transferência de CD.</li>
-                <li>Garantia do cumprimento rigoroso de prazos e da integridade física das cargas operadas.</li>
+                <li>Gestão estratégica das atividades operacionais da unidade.</li>
+                <li>Supervisão de fluxo diário de <strong>+6 caminhões de coleta</strong> e carregamento de <strong>3 a 5 carretas de transferência</strong>.</li>
+                <li>Garantia da integridade física das cargas e cumprimento rigoroso dos horários de saída (SLA).</li>
             </ul>
         </div>
 
@@ -208,8 +233,8 @@
             </div>
             <span class="role">Voluntário Operacional e Tático</span>
             <ul>
-                <li>Atuação em cenários de alta complexidade, extremo risco e recursos limitados.</li>
-                <li>Desenvolvimento agudo de resiliência, rápida tomada de decisão sob alta pressão e coordenação logística tática.</li>
+                <li>Coordenação logística e tomada de decisão rápida em cenários de alta complexidade e risco.</li>
+                <li>Desenvolvimento de resiliência extrema e adaptabilidade a recursos limitados.</li>
             </ul>
         </div>
 
@@ -220,10 +245,10 @@
             </div>
             <span class="role">Encarregado Operacional (Promovido de Conferente)</span>
             <ul>
-                <li>Liderança direta e gerenciamento de fluxo de trabalho de uma <strong>equipe com 12 colaboradores</strong>.</li>
-                <li>Responsável pela criação de escalas e avaliação de desempenho individual baseada em KPIs.</li>
-                <li>Atuação como multiplicador de conhecimento: responsável pelo <strong>treinamento técnico em WMS, cubagem e paletização</strong> para novos funcionários.</li>
-                <li>Supervisão direta e ativa das rotinas de carregamento e descarga de veículos de transferências para CDs, reduzindo erros de expedição.</li>
+                <li>Liderança direta de <strong>equipe com 12 colaboradores</strong> e criação de cronogramas de turno.</li>
+                <li>Responsável pelo treinamento técnico em <strong>WMS, cubagem e paletização</strong> para novos funcionários.</li>
+                <li>Supervisão direta das transferências para CDs, reduzindo erros de expedição e otimizando o carregamento.</li>
+                <li>Análise de indicadores de desempenho (KPIs) individuais e do time para correção de gargalos.</li>
             </ul>
         </div>
 
@@ -234,42 +259,22 @@
             </div>
             <span class="role">Assistente de Expedição / Distribuição</span>
             <ul>
-                <li>Suporte administrativo e operacional crítico aos processos de expedição, garantindo a aderência aos prazos de entrega (SLA).</li>
-            </ul>
-        </div>
-
-        <div class="experience-item">
-            <div class="exp-header">
-                <span class="company-name">Tática Transportes</span>
-                <span class="job-period">Dezembro de 2014 – Janeiro de 2016</span>
-            </div>
-            <span class="role">Ajudante de Motorista</span>
-            <ul>
-                <li>Execução prática de carga/descarga e separação de materiais logísticos.</li>
+                <li>Suporte administrativo e controle de documentação para expedição de cargas.</li>
             </ul>
         </div>
     </section>
 
     <section>
-        <h2>Formação Acadêmica e Certificações</h2>
-        
+        <h2>Formação e Certificações</h2>
         <div class="certification-item">
-            <strong>Bacharelado em Logística</strong> – UNIASSELVI
-            <br><small>Início em Agosto de 2025 (Cursando) | Foco em Gestão de Cadeia de Suprimentos e Otimização de Processos.</small>
+            <strong>Bacharelado em Logística</strong> – UNIASSELVI (Cursando - Início 2025)
         </div>
-
         <div class="certification-item">
-            <strong>Desenvolva suas Competências em Cadeia de Suprimentos</strong> – LinkedIn Learning
-            <br><small>Concluído em Maio de 2026 | Competências: Gestão da cadeia de suprimentos, Práticas de negócio sustentáveis, Gestão de riscos.</small>
+            <strong>Desenvolva suas Competências em Cadeia de Suprimentos</strong> – LinkedIn Learning (Maio/2026)
+            <br><small>Foco em Gestão de Riscos, Sustentabilidade e Gestão da Cadeia de Suprimentos.</small>
         </div>
-
         <div class="certification-item">
             <strong>Socorrista Tático / TCCC CLS</strong> – United Help Ukraine / Associação Brasileira de APH Tático
-            <br><small>Habilidade em resposta rápida e gerenciamento de segurança operacional sob pressão.</small>
-        </div>
-
-        <div class="certification-item">
-            <strong>Aprendizagem em Crédito e Cobrança</strong> – Mercedes-Benz do Brasil
         </div>
     </section>
 </div>
