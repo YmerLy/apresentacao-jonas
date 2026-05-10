@@ -413,3 +413,38 @@
             background: rgba(57, 197, 207, 0.1);
             transform: translateY(-2px);
         }
+
+        /* Estilos para o Seletor de Idioma */
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .lang-btn {
+            background: none;
+            border: 1px solid transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .lang-btn.active {
+            background: var(--accent-cyan);
+            color: #0b0e14;
+            border-color: var(--accent-cyan);
+        }
+        .lang-btn:hover:not(.active) {
+            color: #fff;
+            border-color: var(--accent-blue);
+        }
