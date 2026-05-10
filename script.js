@@ -20,8 +20,8 @@ const translations = {
                 credits: "Dashboard idealizado e desenvolvido<br>por <strong>Jonas Afonso</strong>",
                 main_title: "Dashboard Analítico de Carreira",
                 last_update: "Última atualização: Maio de 2026",
-                kpi_1: "Gestão de Equipes de Alta Performance",
-                kpi_2: "Supervisão de Fluxo e Carga/Descarga",
+                kpi_1: "Colaboradores Gerenciados",
+                kpi_2: "Caminhões de Coleta / Dia",
                 kpi_3: "Carretas de Transferência / Dia",
                 box_title: "Multiplicador de Conhecimento & Gestão de Qualidade",
                 box_desc: "Responsável pela formação e treinamento de equipes operacionais, dominando o ciclo completo da cadeia: <strong style='color: var(--accent-cyan);'>WMS, Paletização, Carregamento, Cubagem e Expedição.</strong> Foco total na padronização de processos para garantir a <strong style='color: #fff;'>máxima eficiência da operação</strong> e o cumprimento rigoroso dos padrões de qualidade nas entregas.",
@@ -51,8 +51,8 @@ const translations = {
                 desc_plimor: "Suporte crítico aos processos de expedição, otimizando o fluxo de documentação e garantindo aderência aos prazos de entrega (SLA).",
                 edu_title: "Qualificações & Educação",
                 edu_date_1: "Início em Agosto de 2025 (Cursando)",
-                edu_course_1: "Ensino Superior - <span style='color: var(--accent-cyan);'>Foco em Tecnologia e Sistemas Logísticos</span>",
-                edu_desc_1: "Direcionamento acadêmico prático para a otimização de sistemas WMS/ERP, automação de processos, IoT e análise de dados aplicados à Supply Chain.",
+                edu_course_1: "Bacharelado em Logística — UNIASSELVI",
+                edu_desc_1: "Foco em Gestão de Cadeia de Suprimentos, Logística Internacional e Otimização de Processos.",
                 cert_name: "Desenvolva as suas Competências em Cadeia de Suprimentos",
                 cert_inst: "<strong>Instituição:</strong> Linkedin Learning",
                 cert_date: "<strong>Data/Duração:</strong> 08/05/2026 (4 horas 52 minutos)",
@@ -91,8 +91,8 @@ const translations = {
                 credits: "Dashboard designed and developed<br>by <strong>Jonas Afonso</strong>",
                 main_title: "Career Analytics Dashboard",
                 last_update: "Last update: May 2026",
-                kpi_1: "High-Performance Team Management",
-                kpi_2: "Flow and Loading/Unloading Supervision",
+                kpi_1: "Managed Employees",
+                kpi_2: "Collection Trucks / Day",
                 kpi_3: "Transfer Trailers / Day",
                 box_title: "Knowledge Multiplier & Quality Management",
                 box_desc: "Responsible for training operational teams, mastering the entire supply chain cycle: <strong style='color: var(--accent-cyan);'>WMS, Palletizing, Loading, Load Optimization, and Shipping.</strong> Total focus on standardizing processes to ensure <strong style='color: #fff;'>maximum operational efficiency</strong> and strict compliance with quality standards in deliveries.",
@@ -122,8 +122,8 @@ const translations = {
                 desc_plimor: "Critical support to shipping processes, optimizing documentation flow and ensuring adherence to delivery deadlines (SLA).",
                 edu_title: "Education & Certifications",
                 edu_date_1: "Started Aug 2025 (Ongoing)",
-                edu_course_1: "Higher Education - <span style='color: var(--accent-cyan);'>Focus on Logistics Technology & Systems</span>",
-                edu_desc_1: "Practical academic focus on optimizing WMS/ERP systems, process automation, IoT, and data analysis applied to the Supply Chain.",
+                edu_course_1: "Bachelor in Logistics — UNIASSELVI",
+                edu_desc_1: "Focus on Supply Chain Management, International Logistics, and Process Optimization.",
                 cert_name: "Develop Your Supply Chain Competencies",
                 cert_inst: "<strong>Institution:</strong> LinkedIn Learning",
                 cert_date: "<strong>Date/Duration:</strong> 05/08/2026 (4 hours 52 minutes)",
@@ -146,21 +146,46 @@ const translations = {
         function switchLanguage(lang) {
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
+                if (translations[lang] && translations[lang][key]) {
                     el.innerHTML = translations[lang][key];
                 }
             });
 
-            // Atualiza botões
-            document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            const btnPt = document.getElementById('btn-pt');
+            const btnEn = document.getElementById('btn-en');
+            if (btnPt && btnEn) {
+                if (lang === 'pt') {
+                    btnPt.classList.add('active');
+                    btnEn.classList.remove('active');
+                } else {
+                    btnEn.classList.add('active');
+                    btnPt.classList.remove('active');
+                }
+            }
             
-            localStorage.setItem('preferredLang', lang);
+            try {
+                localStorage.setItem('preferredLang', lang);
+            } catch (e) {
+                console.warn("Aviso: Navegador bloqueou salvamento local, mas a tradução funcionará normalmente.");
+            }
         }
 
-        // AUTO-DETECT SISTEMA OU LOCAL STORAGE
-        window.onload = () => {
-            const savedLang = localStorage.getItem('preferredLang');
-            const browserLang = navigator.language.startsWith('en') ? 'en' : 'pt';
-            switchLanguage(savedLang || browserLang);
-        };
+        // Atribui os eventos de clique de forma segura
+        document.getElementById('btn-pt').addEventListener('click', () => switchLanguage('pt'));
+        document.getElementById('btn-en').addEventListener('click', () => switchLanguage('en'));
+
+        // Carregamento inicial automático
+        document.addEventListener('DOMContentLoaded', () => {
+            let savedLang = 'pt';
+            try {
+                const localLang = localStorage.getItem('preferredLang');
+                if (localLang) {
+                    savedLang = localLang;
+                } else if (navigator.language.startsWith('en')) {
+                    savedLang = 'en';
+                }
+            } catch (e) {
+                if (navigator.language.startsWith('en')) savedLang = 'en';
+            }
+            switchLanguage(savedLang);
+        });
