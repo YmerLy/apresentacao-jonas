@@ -1,92 +1,166 @@
-(function() {
-    var _0x1a2b = function() {
-        if (window.outerHeight - window.innerHeight > 160 || window.outerWidth - window.innerWidth > 160) {
-            console.log("DevTools detectado.");
+const translations = {
+            pt: {
+                profile_title: "Encarregado Operacional | Supervisor de Logística",
+                resume_text: "Unindo a vivência prática com a tecnologia para otimizar rotinas, implementar automação (WMS/KPIs) e escalar operações logísticas de alta performance. <strong>Total disponibilidade para viagens e mudanças de estado/cidade.</strong>",
+                location: "Biguaçu, SC",
+                relocation: "DISPONÍVEL PARA RELOCAÇÃO",
+                lang_header: "Idiomas",
+                lang_en: "Inglês",
+                lang_es: "Espanhol",
+                lang_ua: "Ucraniano",
+                level_adv: "Avançado",
+                level_int: "Intermediário",
+                level_bas: "Básico",
+                hardskills_header: "Hard Skills",
+                hs_1: "Sistemas WMS/ERP",
+                hs_2: "Excel Avançado",
+                hs_3: "Op. de Empilhadeira",
+                hs_4: "Rotinas Carga/Descarga",
+                btn_cv: "Baixar CV (PDF / ATS)",
+                credits: "Dashboard idealizado e desenvolvido<br>por <strong>Jonas Afonso</strong>",
+                main_title: "Dashboard Analítico de Carreira",
+                last_update: "Última atualização: Maio de 2026",
+                kpi_1: "Gestão de Equipes de Alta Performance",
+                kpi_2: "Supervisão de Fluxo e Carga/Descarga",
+                kpi_3: "Carretas de Transferência / Dia",
+                box_title: "Multiplicador de Conhecimento & Gestão de Qualidade",
+                box_desc: "Responsável pela formação e treinamento de equipes operacionais, dominando o ciclo completo da cadeia: <strong style='color: var(--accent-cyan);'>WMS, Paletização, Carregamento, Cubagem e Expedição.</strong> Foco total na padronização de processos para garantir a <strong style='color: #fff;'>máxima eficiência da operação</strong> e o cumprimento rigoroso dos padrões de qualidade nas entregas.",
+                achiev_title: "Principais Conquistas & Impacto na Operação",
+                ach_1_title: "Otimização Financeira & Espaço (Cubagem)",
+                ach_1_desc: "Melhoria nas rotinas de cubagem e organização de carga, maximizando o espaço nos veículos e gerando economia direta nos custos de frete.",
+                ach_2_title: "Cultura de Segurança & Prevenção",
+                ach_2_desc: "Implementação e fiscalização rigorosa das normas de segurança do trabalho e uso de EPIs, mitigando o risco de acidentes no armazém.",
+                ach_3_title: "Gestão de Clima & Resolução de Conflitos",
+                ach_3_desc: "Mediação ativa de conflitos e aumento do engajamento da equipe, garantindo uma operação fluida e coesa mesmo sob alta pressão diária.",
+                ach_4_title: "Prevenção de Falhas via Tecnologia",
+                ach_4_desc: "Utilização de conhecimentos em TI e análise de dados para identificar gargalos operacionais antes da expedição, garantindo altos níveis de SLA.",
+                exp_title: "Experiência Profissional (Foco em Resultados)",
+                date_rodonaves: "Outubro de 2025 – Março de 2026",
+                role_supervisor: "Supervisor Operacional",
+                desc_rodonaves: "Supervisão direta das atividades operacionais estratégicas. Liderança de equipe com foco no fluxo diário de cargas. Implementação de táticas que reduziram gargalos no pátio e garantiram a integridade dos processos. Gestão de fluxo diário de +6 caminhões de coleta e 3 a 5 carretas de transferência.",
+                date_ildu: "Janeiro de 2025 – Agosto de 2025",
+                role_volunteer: "Voluntário Operacional e Tático (ILDU)",
+                desc_ildu: "Atuação em cenários de alta complexidade e extremo risco. Desenvolvimento agudo de resiliência, tomada rápida de decisão sob estresse e coordenação logística em ambientes com recursos limitados.",
+                date_fit: "Agosto de 2021 – Novembro de 2023",
+                role_lead: "Encarregado Operacional (Promovido de Conferente)",
+                desc_fit_1: "• Liderança direta de equipe com 12 colaboradores.",
+                desc_fit_2: "• <strong>Treinamento Técnico:</strong> Formação de novos colaboradores nas rotinas de WMS, cubagem e paletização, com impacto direto na diminuição de avarias.",
+                desc_fit_3: "• Garantia de SLA e integridade da carga através da supervisão ativa durante as cargas e descargas.",
+                date_plimor: "Setembro de 2020 – Junho de 2021",
+                role_assistant: "Assistente de Expedição / Distribuição",
+                desc_plimor: "Suporte crítico aos processos de expedição, otimizando o fluxo de documentação e garantindo aderência aos prazos de entrega (SLA).",
+                edu_title: "Qualificações & Educação",
+                edu_date_1: "Início em Agosto de 2025 (Cursando)",
+                edu_course_1: "Ensino Superior - <span style='color: var(--accent-cyan);'>Foco em Tecnologia e Sistemas Logísticos</span>",
+                edu_desc_1: "Direcionamento acadêmico prático para a otimização de sistemas WMS/ERP, automação de processos, IoT e análise de dados aplicados à Supply Chain.",
+                cert_name: "Desenvolva as suas Competências em Cadeia de Suprimentos",
+                cert_inst: "<strong>Instituição:</strong> Linkedin Learning",
+                cert_date: "<strong>Data/Duração:</strong> 08/05/2026 (4 horas 52 minutos)",
+                cert_skills: "<strong>Competências:</strong> <span>Gestão da cadeia de suprimentos • Práticas sustentáveis • Gestão de riscos</span>",
+                cert_btn: "Ver certificado",
+                edu_date_2: "Formação Tática e de Segurança",
+                skills_title: "Mapeamento de Competências Core (Hard & Soft Skills)",
+                sk_1: "Supply Chain & Operações Logísticas",
+                sk_2: "Gestão de Riscos & Sustentabilidade",
+                sk_3: "Análise de Dados Operacionais (KPIs)",
+                sk_4: "Liderança & Gestão de Pessoas",
+                sk_5: "Melhoria Contínua & Processos",
+                sk_6: "Resiliência & Decisão sob Pressão",
+                lvl_adv: "Avançado",
+                lvl_sol: "Sólido",
+                lvl_high: "Alto Nível"
+            },
+            en: {
+                profile_title: "Operations Lead | Logistics Supervisor",
+                resume_text: "Combining practical experience with technology to optimize routines, implement automation (WMS/KPIs), and scale high-performance logistics operations. <strong>Full availability for travel and state/city relocation.</strong>",
+                location: "Biguaçu, SC - Brazil",
+                relocation: "AVAILABLE FOR RELOCATION",
+                lang_header: "Languages",
+                lang_en: "English",
+                lang_es: "Spanish",
+                lang_ua: "Ukrainian",
+                level_adv: "Advanced",
+                level_int: "Intermediate",
+                level_bas: "Basic",
+                hardskills_header: "Hard Skills",
+                hs_1: "WMS/ERP Systems",
+                hs_2: "Advanced Excel",
+                hs_3: "Forklift Operation",
+                hs_4: "Loading/Unloading Routines",
+                btn_cv: "Download CV (PDF / ATS)",
+                credits: "Dashboard designed and developed<br>by <strong>Jonas Afonso</strong>",
+                main_title: "Career Analytics Dashboard",
+                last_update: "Last update: May 2026",
+                kpi_1: "High-Performance Team Management",
+                kpi_2: "Flow and Loading/Unloading Supervision",
+                kpi_3: "Transfer Trailers / Day",
+                box_title: "Knowledge Multiplier & Quality Management",
+                box_desc: "Responsible for training operational teams, mastering the entire supply chain cycle: <strong style='color: var(--accent-cyan);'>WMS, Palletizing, Loading, Load Optimization, and Shipping.</strong> Total focus on standardizing processes to ensure <strong style='color: #fff;'>maximum operational efficiency</strong> and strict compliance with quality standards in deliveries.",
+                achiev_title: "Key Achievements & Operational Impact",
+                ach_1_title: "Financial & Space Optimization (Load Optimization)",
+                ach_1_desc: "Improved load optimization routines and cargo organization, maximizing vehicle space and generating direct savings in freight costs.",
+                ach_2_title: "Safety & Prevention Culture",
+                ach_2_desc: "Strict implementation and enforcement of occupational safety standards and the use of PPE, mitigating the risk of accidents in the warehouse.",
+                ach_3_title: "Climate Management & Conflict Resolution",
+                ach_3_desc: "Active conflict mediation and increased team engagement, ensuring a smooth and cohesive operation even under high daily pressure.",
+                ach_4_title: "Failure Prevention via Technology",
+                ach_4_desc: "Utilization of IT knowledge and data analysis to identify operational bottlenecks prior to shipping, guaranteeing high SLA levels.",
+                exp_title: "Professional Experience (Results-Driven)",
+                date_rodonaves: "Oct 2025 – Mar 2026",
+                role_supervisor: "Operations Supervisor",
+                desc_rodonaves: "Direct supervision of strategic operational activities. Team leadership focused on daily cargo flow. Implemented tactics that reduced yard bottlenecks and ensured process integrity. Managed daily flow of +6 collection trucks and 3 to 5 transfer trailers.",
+                date_ildu: "Jan 2025 – Aug 2025",
+                role_volunteer: "Operational and Tactical Volunteer (ILDU)",
+                desc_ildu: "Acted in highly complex and extremely risky scenarios. Acute development of resilience, rapid decision-making under stress, and logistical coordination in resource-constrained environments.",
+                date_fit: "Aug 2021 – Nov 2023",
+                role_lead: "Operations Lead (Promoted from Checker)",
+                desc_fit_1: "• Direct leadership of a team with 12 employees.",
+                desc_fit_2: "• <strong>Technical Training:</strong> Trained new employees in WMS routines, load optimization, and palletizing, directly impacting the reduction of damages.",
+                desc_fit_3: "• Guaranteed SLA and cargo integrity through active supervision during loading and unloading.",
+                date_plimor: "Sep 2020 – Jun 2021",
+                role_assistant: "Shipping / Distribution Assistant",
+                desc_plimor: "Critical support to shipping processes, optimizing documentation flow and ensuring adherence to delivery deadlines (SLA).",
+                edu_title: "Education & Certifications",
+                edu_date_1: "Started Aug 2025 (Ongoing)",
+                edu_course_1: "Higher Education - <span style='color: var(--accent-cyan);'>Focus on Logistics Technology & Systems</span>",
+                edu_desc_1: "Practical academic focus on optimizing WMS/ERP systems, process automation, IoT, and data analysis applied to the Supply Chain.",
+                cert_name: "Develop Your Supply Chain Competencies",
+                cert_inst: "<strong>Institution:</strong> LinkedIn Learning",
+                cert_date: "<strong>Date/Duration:</strong> 05/08/2026 (4 hours 52 minutes)",
+                cert_skills: "<strong>Competencies:</strong> <span>Supply chain management • Sustainable practices • Risk management</span>",
+                cert_btn: "View Certificate",
+                edu_date_2: "Tactical & Safety Training",
+                skills_title: "Core Competencies Mapping (Hard & Soft Skills)",
+                sk_1: "Supply Chain & Logistics Ops",
+                sk_2: "Risk Management & Sustainability",
+                sk_3: "Operational Data Analysis (KPIs)",
+                sk_4: "Leadership & People Management",
+                sk_5: "Continuous Improvement & Processes",
+                sk_6: "Resilience & Decision Making Under Pressure",
+                lvl_adv: "Advanced",
+                lvl_sol: "Solid",
+                lvl_high: "High Level"
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Atualiza botões
+            document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            
+            localStorage.setItem('preferredLang', lang);
         }
-    };
-    window.addEventListener('resize', _0x1a2b);
-    _0x1a2b();
-})();
 
-var typewriter = new Typewriter(document.getElementById('typewriter'), { loop: true, delay: 60 });
-typewriter.typeString('JONAS AFONSO DA ROSA').pauseFor(2500).deleteAll()
-    .typeString('LIDERANÇA LOGÍSTICA').pauseFor(2000).deleteAll()
-    .typeString('RESILIÊNCIA COMPROVADA').start();
-
-
-gsap.from(".trunk", {
-    height: 0,
-    scrollTrigger: {
-        trigger: ".tree-container",
-        start: "top 70%",
-        end: "bottom 20%",
-        scrub: 1.5
-    }
-});
-
-
-gsap.utils.toArray(".node-wrapper").forEach((node) => {
-    gsap.to(node, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-            trigger: node,
-            start: "top 85%", 
-            toggleActions: "play none none reverse",
-        }
-    });
-});
-
-
-gsap.to(".wm-1, .wm-3, .wm-5", {
-    y: -100,
-    scrollTrigger: {
-        trigger: "body",
-        scrub: 1
-    }
-});
-
-gsap.to(".wm-2, .wm-4, .wm-6", {
-    y: 100,
-    scrollTrigger: {
-        trigger: "body",
-        scrub: 1
-    }
-});
-
-  // Bloqueia F12, Ctrl+Shift+I, Ctrl+U e Ctrl+S
-      document.onkeydown = function (e) {
-        if (e.keyCode == 123) {
-          return false;
-        } // F12
-        if (
-          e.ctrlKey &&
-          e.shiftKey &&
-          (e.keyCode == "I".charCodeAt(0) ||
-            e.keyCode == "J".charCodeAt(0) ||
-            e.keyCode == "C".charCodeAt(0))
-        ) {
-          return false;
-        }
-        if (
-          e.ctrlKey &&
-          (e.keyCode == "U".charCodeAt(0) ||
-            e.keyCode == "S".charCodeAt(0) ||
-            e.keyCode == "H".charCodeAt(0) ||
-            e.keyCode == "A".charCodeAt(0) ||
-            e.keyCode == "P".charCodeAt(0))
-        ) {
-          return false;
-        }
-      };
-
-      setInterval(function () {
-        var before = new Date().getTime();
-        debugger;
-        var after = new Date().getTime();
-        if (after - before > 100) {
-          document.querySelector("body").innerHTML =
-            "<h1>Acesso negado para inspeção.</h1>";
-        }
-      }, 1000);
+        // AUTO-DETECT SISTEMA OU LOCAL STORAGE
+        window.onload = () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            const browserLang = navigator.language.startsWith('en') ? 'en' : 'pt';
+            switchLanguage(savedLang || browserLang);
+        };
